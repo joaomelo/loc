@@ -1,0 +1,14 @@
+{
+  "name": "loc-table",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite --config vite.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.5.0"
+  }
+}

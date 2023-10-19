@@ -1,0 +1,23 @@
+dist/
+dist-docs/
+node_modules/
+reports/
+
+# arquivos de execução de testes
+videos/
+screenshots/
+downloads/
+debug.log
+*.mp4
+coverage/
+.nyc_output/
+html-results.html
+junit.xml
+.env
+
+# vscode
+.vscode/
+.vscodecounter/
+/.project
+/.classpath
+/.settings
