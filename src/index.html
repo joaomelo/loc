@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>loc table</title>
+    <title>loc</title>
     <style>
       html {
         font-family: monospace;
@@ -13,6 +13,7 @@
       .controls {
         display: flex;
         gap: 16px;
+        margin-top: 16px;
         justify-content: center;
       }
 
@@ -41,6 +42,36 @@
     </style>
   </head>
   <body>
+    <div id="readme">
+      <p>
+        Loc is a web tool that loads a folder from your local file system and
+        tabulates files and the line count inside them.
+      </p>
+      <p>
+        It is possible to fine-tune the considered files using
+        <a
+          href="https://en.wikipedia.org/wiki/Glob_(programming)"
+          target="_blank"
+          >glob</a
+        >
+        pattern syntax. You can easily copy and paste the computed data on your
+        favorite spreadsheet software to further your analysis and estimates.
+      </p>
+
+      <p>
+        The app uses the secure
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_API#browser_compatibility"
+          >File System API</a
+        >
+        and does not send data from your machine. Everything is done right in
+        your browser. The source code is available in this
+        <a href="https://github.com/joaomelo/loc" target="_blank"
+          >GitHub repository</a
+        >. You can check it or even download and run it locally. The site is
+        hosted in the same infrastructure using GitHub Pages.
+      </p>
+    </div>
     <div class="controls">
       <div>
         <label for="include">glob include pattern</label>
@@ -57,7 +88,7 @@
       <button id="open">open</button>
     </div>
     <div id="output" class="output">
-      define patters and click open to choose a root directory
+      define at least a include patter and click open to choose a root directory
     </div>
     <script type="module">
       import { initApp } from "./index.js";
