@@ -4,7 +4,8 @@
   "description": "loc is a web tool that loads a folder from your local file system and tabulates files and the line count inside them",
   "main": "src/index.html",
   "scripts": {
-    "start": "vite --config vite.config.js"
+    "start": "vite --config vite.config.js",
+    "build": "vite build"
   },
   "author": "joão melo",
   "license": "ISC",
