@@ -1,12 +1,12 @@
 {
-  "name": "loc-table",
+  "name": "loc",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "loc is a web tool that loads a folder from your local file system and tabulates files and the line count inside them",
+  "main": "src/index.html",
   "scripts": {
     "start": "vite --config vite.config.js"
   },
-  "author": "",
+  "author": "joão melo",
   "license": "ISC",
   "devDependencies": {
     "vite": "^4.5.0"
