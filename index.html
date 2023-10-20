@@ -10,11 +10,24 @@
         font-family: monospace;
       }
 
+      main {
+        max-width: 640px;
+        margin: auto;
+      }
+
       .controls {
         display: flex;
         gap: 16px;
         margin-top: 16px;
-        justify-content: center;
+        justify-content: space-between;
+      }
+
+      input {
+        width: 200px;
+      }
+
+      button {
+        width: 60px;
       }
 
       input,
@@ -31,6 +44,7 @@
 
       table {
         border-collapse: collapse;
+        width: 100%;
       }
 
       th,
@@ -42,54 +56,58 @@
     </style>
   </head>
   <body>
-    <div id="readme">
-      <p>
-        Loc is a web tool that loads a folder from your local file system and
-        tabulates files and the line count inside them.
-      </p>
-      <p>
-        It is possible to fine-tune the considered files using
-        <a
-          href="https://en.wikipedia.org/wiki/Glob_(programming)"
-          target="_blank"
-          >glob</a
-        >
-        pattern syntax. You can easily copy and paste the computed data on your
-        favorite spreadsheet software to further your analysis and estimates.
-      </p>
+    <main>
+      <div id="readme">
+        <p>
+          Loc is a web tool that loads a folder from your local file system and
+          tabulates files and the line count inside them.
+        </p>
+        <p>
+          It is possible to fine-tune the considered files using
+          <a
+            href="https://en.wikipedia.org/wiki/Glob_(programming)"
+            target="_blank"
+            >glob</a
+          >
+          pattern syntax. You can easily copy and paste the computed data on
+          your favorite spreadsheet software to further your analysis and
+          estimates.
+        </p>
 
-      <p>
-        The app uses the secure
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_API#browser_compatibility"
-          >File System API</a
-        >
-        and does not send data from your machine. Everything is done right in
-        your browser. The source code is available in this
-        <a href="https://github.com/joaomelo/loc" target="_blank"
-          >GitHub repository</a
-        >. You can check it or even download and run it locally. The site is
-        hosted in the same infrastructure using GitHub Pages.
-      </p>
-    </div>
-    <div class="controls">
-      <div>
-        <label for="include">glob include pattern</label>
-        <input id="include" type="text" placeholder="**/*.{js,jsx}" />
+        <p>
+          The app uses the secure
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_API#browser_compatibility"
+            >File System API</a
+          >
+          and does not send data from your machine. Everything is done right in
+          your browser. The source code is available in this
+          <a href="https://github.com/joaomelo/loc" target="_blank"
+            >GitHub repository</a
+          >. You can check it or even download and run it locally. The site is
+          hosted in the same infrastructure using GitHub Pages.
+        </p>
       </div>
-      <div>
-        <label for="ignore">ignore</label>
-        <input
-          id="ignore"
-          type="text"
-          placeholder="**/{node_modules,index.js}"
-        />
+      <div class="controls">
+        <div>
+          <label for="include">include</label>
+          <input id="include" type="text" placeholder="**/*.{js,jsx}" />
+        </div>
+        <div>
+          <label for="ignore">ignore</label>
+          <input
+            id="ignore"
+            type="text"
+            placeholder="**/{node_modules,index.js}"
+          />
+        </div>
+        <button id="open">open</button>
       </div>
-      <button id="open">open</button>
-    </div>
-    <div id="output" class="output">
-      define at least a include patter and click open to choose a root directory
-    </div>
+      <div id="output" class="output">
+        define your glob patterns and click open to choose the base directory
+      </div>
+    </main>
+
     <script type="module">
       import { minimatch } from "minimatch";
 
@@ -106,9 +124,13 @@
 
       function createMatch() {
         const includeValue = document.getElementById("include").value;
-        const include = (name) => minimatch(name, includeValue);
+        const include = includeValue
+          ? (name) => minimatch(name, includeValue)
+          : () => true;
         const ignoreValue = document.getElementById("ignore").value;
-        const ignore = (name) => minimatch(name, ignoreValue);
+        const ignore = ignoreValue
+          ? (name) => minimatch(name, ignoreValue)
+          : () => false;
         return { include, ignore };
       }
 
