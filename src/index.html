@@ -5,10 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>loc table</title>
+    <style>
+      html {
+        font-family: monospace;
+      }
+
+      .controls {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      input,
+      button {
+        font-family: inherit;
+      }
+
+      .output {
+        width: 100%;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #000000;
+        padding: 2px;
+        min-width: 64px;
+      }
+    </style>
   </head>
   <body>
-    <button id="open">open</button>
-    <table id="table"></table>
+    <div class="controls">
+      <div>
+        <label for="include">glob include pattern</label>
+        <input id="include" type="text" placeholder="**/*.{js,jsx}" />
+      </div>
+      <div>
+        <label for="ignore">ignore</label>
+        <input
+          id="ignore"
+          type="text"
+          placeholder="**/{node_modules,index.js}"
+        />
+      </div>
+      <button id="open">open</button>
+    </div>
+    <div id="output" class="output">
+      define patters and click open to choose a root directory
+    </div>
     <script type="module">
       import { initApp } from "./index.js";
       initApp();
