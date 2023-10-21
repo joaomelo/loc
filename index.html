@@ -46,13 +46,18 @@
       table {
         border-collapse: collapse;
         width: 100%;
+        table-layout: fixed;
       }
 
       th,
       td {
         border: 1px solid #000000;
         padding: 2px;
-        min-width: 64px;
+      }
+
+      td.loc {
+        width: 64px;
+        text-align: right;
       }
     </style>
   </head>
@@ -178,6 +183,7 @@
           tr.appendChild(name);
 
           const loc = document.createElement("td");
+          loc.className = "loc";
           loc.textContent = item.loc;
           tr.appendChild(loc);
 
