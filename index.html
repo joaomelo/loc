@@ -60,7 +60,8 @@
       <div id="readme">
         <p>
           Loc is a web tool that loads a folder from your local file system and
-          tabulates files and the line count inside them.
+          tabulates files with their <strong>path</strong> and
+          <strong>line count</strong>.
         </p>
         <p>
           It is possible to fine-tune the considered files using
@@ -110,7 +111,7 @@
     </main>
 
     <script type="module">
-      import { minimatch } from "minimatch";
+      import { minimatch } from "https://cdn.jsdelivr.net/npm/minimatch@9.0.3/+esm";
 
       const button = document.getElementById("open");
       button.onclick = doIt;
@@ -167,14 +168,6 @@
 
         const table = document.createElement("table");
         output.appendChild(table);
-
-        const titles = document.createElement("tr");
-        ["name", "loc"].forEach((str) => {
-          const title = document.createElement("th");
-          title.textContent = str;
-          titles.appendChild(title);
-        });
-        table.appendChild(titles);
 
         files.forEach((item) => {
           const tr = document.createElement("tr");
