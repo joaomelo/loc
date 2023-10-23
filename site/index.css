@@ -1,0 +1,55 @@
+html {
+  font-family: monospace;
+}
+
+main {
+  max-width: 640px;
+  margin: auto;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  justify-content: space-between;
+}
+
+input {
+  width: 200px;
+}
+
+button {
+  width: 60px;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+.output {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  border: 1px solid #000000;
+  padding: 2px;
+}
+
+th.loc {
+  width: 64px;
+}
+
+td.loc {
+  text-align: right;
+}
