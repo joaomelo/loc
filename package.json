@@ -7,8 +7,7 @@
     "start": "vite --config vite.config.js",
     "build": "vite build"
   },
-  "author": "joão melo",
-  "license": "ISC",
+  "author": "joão melo <j@melo.plus> (https://joao.melo.plus)",
   "devDependencies": {
     "firebase-tools": "^12.7.0",
     "vite": "^4.5.0"
